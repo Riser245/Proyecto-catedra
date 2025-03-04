@@ -17,6 +17,15 @@ class Vuelo
     public int asientosDisponibles;
 }
 
+class Destinosreserv
+{
+    public int id;
+    public string destino2;
+    public string horario2;
+    public int capacidad2;
+    public int asientosDisponibles2;
+}
+
 class Reserva
 {
     public int idCliente;
@@ -98,12 +107,54 @@ class Program
         Console.WriteLine("Vuelo registrado con éxito!\n");
     }
 
+
+
+    static void Reservavuelo(Destinosreserv[] Destino, ref int reservVuelo)
+    {
+        if (reservVuelo >= Destino.Length)
+        {
+            Console.WriteLine("No se pueden registrar más vuelos. Límite alcanzado.");
+            return;
+        }
+
+        Console.Write("Ingrese el ID del vuelo: ");
+        if (!int.TryParse(Console.ReadLine(), out int id))
+        {
+            Console.WriteLine("ID inválido.");
+            return;
+        }
+
+        Destino[reservVuelo] = new Destinosreserv(); // Se inicializa la posición en el array
+        Destino[reservVuelo].id = id;
+
+        Console.Write("Ingrese el destino: ");
+        Destino[reservVuelo].destino2 = Console.ReadLine();
+
+        Console.Write("Ingrese el horario: ");
+        Destino[reservVuelo].horario2 = Console.ReadLine();
+
+        Console.Write("Ingrese la capacidad del vuelo: ");
+        if (!int.TryParse(Console.ReadLine(), out int capacidad))
+        {
+            Console.WriteLine("Capacidad inválida.");
+            return;
+        }
+
+        Destino[reservVuelo].capacidad2 = capacidad;
+        Destino[reservVuelo].asientosDisponibles2 = capacidad;
+        reservVuelo++;
+        Console.WriteLine("Vuelo registrado con éxito!\n");
+    }
+
+
+
     static void Menu()
     {
         Cliente[] clientes = new Cliente[100];
         Vuelo[] vuelos = new Vuelo[10];
         Reserva[] reservas = new Reserva[100];
-        int totalClientes = 0, totalVuelos = 0;
+        Destinosreserv[] reservVuelo = new Destinosreserv[100];
+        int totalClientes = 0, totalVuelos = 0 , rVuelo = 0;
 
         bool esEmpleado = AutenticarEmpleado();
 
@@ -134,7 +185,7 @@ class Program
             {
                 case 1:
                     // Lógica para reservar vuelo
-                    Console.WriteLine("Funcionalidad de reservar vuelo no implementada aún.");
+                    Reservavuelo(reservVuelo, ref rVuelo);
                     break;
                 case 2:
                     // Lógica para cancelar reserva
