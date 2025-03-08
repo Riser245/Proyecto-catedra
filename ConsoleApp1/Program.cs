@@ -110,41 +110,71 @@ class Program
 
 
     static void Reservavuelo(Destinosreserv[] Destino, ref int reservVuelo)
+
     {
-        if (reservVuelo >= Destino.Length)
+        Cliente[] clientes = new Cliente[100];
+        Vuelo[] vuelos = new Vuelo[10];
+        Reserva[] reservas = new Reserva[100];
+        int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
+
+
+        int Paises;
+        Console.Write("\tEscoge el destino a reservar un vuelo ");
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t Destinos a escoger");
+        Console.WriteLine("\t 1. USA");
+        Console.WriteLine("\t 2. Mexico");
+        Console.WriteLine("\t 3. Colombia");
+        Console.WriteLine("\t 4. Peru");
+        Console.WriteLine("\t 5. España");
+        Console.WriteLine("\t 6. Regresar al menu");
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\n");
+        Paises = int.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        // Aqui funciona el switch con sus cases
+        switch (Paises)
         {
-            Console.WriteLine("No se pueden registrar más vuelos. Límite alcanzado.");
-            return;
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+                RegistrarCliente(clientes, ref totalClientes);
+                break;
+            case 5:
+                RegistrarVuelo(vuelos, ref totalVuelos);
+                break;
+            case 6:
+
+                break;
+            case 7:
+                Environment.Exit(0); // esta instruccion se sale de un solo del programa
+                break;
+
+            default:
+                Console.WriteLine("\t Opcion no definida.. intente de nuevo");
+                break;
         }
-
-        Console.Write("Ingrese el ID del vuelo: ");
-        if (!int.TryParse(Console.ReadLine(), out int id))
-        {
-            Console.WriteLine("ID inválido.");
-            return;
-        }
-
-        Destino[reservVuelo] = new Destinosreserv(); // Se inicializa la posición en el array
-        Destino[reservVuelo].id = id;
-
-        Console.Write("Ingrese el destino: ");
-        Destino[reservVuelo].destino2 = Console.ReadLine();
-
-        Console.Write("Ingrese el horario: ");
-        Destino[reservVuelo].horario2 = Console.ReadLine();
-
-        Console.Write("Ingrese la capacidad del vuelo: ");
-        if (!int.TryParse(Console.ReadLine(), out int capacidad))
-        {
-            Console.WriteLine("Capacidad inválida.");
-            return;
-        }
-
-        Destino[reservVuelo].capacidad2 = capacidad;
-        Destino[reservVuelo].asientosDisponibles2 = capacidad;
-        reservVuelo++;
-        Console.WriteLine("Vuelo registrado con éxito!\n");
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
