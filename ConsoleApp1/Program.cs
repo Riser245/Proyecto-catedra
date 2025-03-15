@@ -17,6 +17,15 @@ class Vuelo
     public int asientosDisponibles;
 }
 
+class Paises
+{
+    public int id;
+    public string destino;
+    public string horario;
+    public int capacidadpasajeros;
+    public int asientosDisponibles;
+
+}
 class Destinosreserv
 {
     public int id;
@@ -163,6 +172,58 @@ class Program
         }
     }
 
+    static void Paises(Paises[] pais, ref int reserPais)
+
+    {
+        Cliente[] clientes = new Cliente[100];
+        Vuelo[] vuelos = new Vuelo[10];
+        Reserva[] reservas = new Reserva[100];
+        int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
+
+
+        int Paises;
+        Console.Write("\tEscoge el destino a reservar un vuelo ");
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t Horarios a escoger");
+        Console.WriteLine("\t 1. USA");
+        Console.WriteLine("\t 2. Mexico");
+        Console.WriteLine("\t 3. Colombia");
+        Console.WriteLine("\t 4. Peru");
+        Console.WriteLine("\t  Regresar al menu");
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\n");
+        Paises = int.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        // Aqui funciona el switch con sus cases
+        switch (Paises)
+        {
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+                RegistrarCliente(clientes, ref totalClientes);
+                break;
+            case 5:
+                RegistrarVuelo(vuelos, ref totalVuelos);
+                break;
+            case 6:
+
+                break;
+            case 7:
+                Environment.Exit(0); // esta instruccion se sale de un solo del programa
+                break;
+
+            default:
+                Console.WriteLine("\t Opcion no definida.. intente de nuevo");
+                break;
+        }
+    }
 
 
 
@@ -203,7 +264,7 @@ class Program
                 Console.WriteLine("6. Cargar datos");
             }
 
-            Console.WriteLine("7. Salir");
+            Console.WriteLine("5. Salir");
             Console.Write("Seleccione una opción: ");
             if (!int.TryParse(Console.ReadLine(), out opcion))
             {
