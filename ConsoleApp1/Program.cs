@@ -124,8 +124,8 @@ class Program
         Cliente[] clientes = new Cliente[100];
         Vuelo[] vuelos = new Vuelo[10];
         Reserva[] reservas = new Reserva[100];
-        int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
-
+        int totalClientes = 0, totalVuelos = 0, rVuelo = 0, reserPais = 0;
+        Paises[] pais = new Paises[100];
 
         int Paises;
         Console.Write("\tEscoge el destino a reservar un vuelo ");
@@ -145,7 +145,7 @@ class Program
         switch (Paises)
         {
             case 1:
-
+                Destinatario(pais, ref reserPais);
                 break;
             case 2:
 
@@ -172,16 +172,17 @@ class Program
         }
     }
 
-    static void Paises(Paises[] pais, ref int reserPais)
+    static void Destinatario(Paises[] pais, ref int reserPais)
 
     {
         Cliente[] clientes = new Cliente[100];
         Vuelo[] vuelos = new Vuelo[10];
         Reserva[] reservas = new Reserva[100];
         int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
+        Destinosreserv[] reservVuelo = new Destinosreserv[100];
 
 
-        int Paises;
+        int Destinos;
         Console.Write("\tEscoge el destino a reservar un vuelo ");
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\t Horarios a escoger");
@@ -189,13 +190,13 @@ class Program
         Console.WriteLine("\t 2. Mexico");
         Console.WriteLine("\t 3. Colombia");
         Console.WriteLine("\t 4. Peru");
-        Console.WriteLine("\t  Regresar al menu");
+        Console.WriteLine("\t 5.Regresar al menu");
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\n");
-        Paises = int.Parse(Console.ReadLine());
+        Destinos = int.Parse(Console.ReadLine());
         Console.WriteLine("\n");
         // Aqui funciona el switch con sus cases
-        switch (Paises)
+        switch (Destinos)
         {
             case 1:
 
@@ -210,10 +211,9 @@ class Program
                 RegistrarCliente(clientes, ref totalClientes);
                 break;
             case 5:
-                RegistrarVuelo(vuelos, ref totalVuelos);
                 break;
             case 6:
-
+                Reservavuelo(reservVuelo, ref rVuelo);
                 break;
             case 7:
                 Environment.Exit(0); // esta instruccion se sale de un solo del programa
