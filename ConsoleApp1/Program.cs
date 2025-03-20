@@ -186,11 +186,12 @@ class Program
         Console.Write("\tEscoge el destino a reservar un vuelo ");
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\t Horarios a escoger");
-        Console.WriteLine("\t 1. USA");
-        Console.WriteLine("\t 2. Mexico");
-        Console.WriteLine("\t 3. Colombia");
-        Console.WriteLine("\t 4. Peru");
-        Console.WriteLine("\t 5.Regresar al menu");
+        Console.WriteLine("\t 1. Los Angeles");
+        Console.WriteLine("\t 2. New York");
+        Console.WriteLine("\t 3. Miami");
+        Console.WriteLine("\t 4. Houston");
+        Console.WriteLine("\t 5. Washington D.C");
+        Console.WriteLine("\t 6.Regresar al menu");
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\n");
         Destinos = int.Parse(Console.ReadLine());
