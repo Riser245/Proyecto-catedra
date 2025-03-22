@@ -28,6 +28,61 @@ class usa
     public int asientosDisponibles;
 }
 
+class mex
+{
+    public int id;
+    public string escalas;
+    public string salida;
+    public string llegada;
+    public string horario;
+    public int capacidad;
+    public int asientosDisponibles;
+}
+
+class esp
+{
+    public int id;
+    public string escalas;
+    public string salida;
+    public string llegada;
+    public string horario;
+    public int capacidad;
+    public int asientosDisponibles;
+}
+
+class col
+{
+    public int id;
+    public string escalas;
+    public string salida;
+    public string llegada;
+    public string horario;
+    public int capacidad;
+    public int asientosDisponibles;
+}
+
+class cost
+{
+    public int id;
+    public string escalas;
+    public string salida;
+    public string llegada;
+    public string horario;
+    public int capacidad;
+    public int asientosDisponibles;
+}
+
+class peru
+{
+    public int id;
+    public string escalas;
+    public string salida;
+    public string llegada;
+    public string horario;
+    public int capacidad;
+    public int asientosDisponibles;
+}
+
 class Paises
 {
     public int id;
@@ -137,7 +192,12 @@ class Program
         Vuelo[] vuelos = new Vuelo[10];
         Reserva[] reservas = new Reserva[100];
         int totalClientes = 0, totalVuelos = 0, rVuelo = 0, reserPais = 0;
-        Paises[] pais = new Paises[100];
+        usa[] USA = new usa[100];
+        mex[] MEX = new mex[100];
+        cost[] COST = new cost[100];
+        col[] COL = new col[100];
+        peru[] PERU = new peru[100];
+        esp[] ESP = new esp[100];
 
         int Paises;
         Console.WriteLine("\t=========================================");
@@ -157,22 +217,24 @@ class Program
         switch (Paises)
         {
             case 1:
-                DestinatarioUsa(pais, ref reserPais);
+                DestinatarioUsa(USA, ref reserPais);
                 break;
             case 2:
+                DestinatarioMex(MEX, ref reserPais);
 
                 break;
             case 3:
+                DestinatarioCost(COST, ref reserPais);
 
                 break;
             case 4:
-                RegistrarCliente(clientes, ref totalClientes);
+                DestinatarioCol(COL, ref reserPais);
                 break;
             case 5:
-                RegistrarVuelo(vuelos, ref totalVuelos);
+                DestinatarioPeru(PERU, ref reserPais);
                 break;
             case 6:
-
+                DestinatarioEsp(ESP, ref reserPais);
                 break;
             case 7:
                 Environment.Exit(0); // esta instruccion se sale de un solo del programa
@@ -186,7 +248,7 @@ class Program
 
 
 
-    static void DestinatarioUsa(Paises[] pais, ref int reserPais)
+    static void DestinatarioUsa(usa[] pais, ref int reserPais)
 
     {
 
@@ -275,18 +337,202 @@ class Program
                 Console.WriteLine("Opción no válida. Intente nuevamente.");
                 break;
         }
-      }
-
-    
-
-
-
-    static void USA(usa[] DestUsa, ref string DestiUsa)
-    {
-        Console.WriteLine("Seleccione un destino: Los Ángeles, Nueva York, Miami, Houston");
-        
     }
 
+
+
+    static void DestinatarioMex(mex[] pais, ref int reserPais)
+
+    {
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t      SELECCIONE UN DESTINO");
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t 1. Ciudad de Mexico");
+        Console.WriteLine("\t 2. Regresar al menú");
+        Console.WriteLine("\t=========================================");
+        Console.Write("\nSeleccione una opción: ");
+
+        string destino = Console.ReadLine();
+        Console.WriteLine("\n=========================================");
+
+        switch (destino)
+        {
+            case "Ciudad de Mexico":
+                Console.WriteLine("Destino: Ciudad de Mexico");
+                Console.WriteLine(" Horario de vuelos:");
+                Console.WriteLine(" - 6:30 a.m. → 9:00 a.m.");
+                Console.WriteLine(" - 8:30 a.m. → 1:00 p.m.");
+                Console.WriteLine(" - 2:30 p.m. → 5:00 p.m.");
+                Console.WriteLine(" - 4:30 p.m. → 7:00 p.m.");
+                Console.WriteLine(" - 6:30 p.m. → 9:00 p.m.");
+                Console.WriteLine(" - 8:30 p.m. → 1:00 a.m.");
+                Console.WriteLine("Precios: Niños: $130, Adultos: $180, Equipaje adicional: $20");
+                break;
+
+            case "2":
+                Console.WriteLine("Regresando al menú principal...");
+                break;
+
+            default:
+                Console.WriteLine("Opción no válida. Intente nuevamente.");
+                break;
+        }
+    }
+
+
+
+    static void DestinatarioCost(cost[] pais, ref int reserPais)
+
+    {
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t      SELECCIONE UN DESTINO");
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t 1. Ciudad de Mexico");
+        Console.WriteLine("\t 2. Regresar al menú");
+        Console.WriteLine("\t=========================================");
+        Console.Write("\nSeleccione una opción: ");
+
+        string destino = Console.ReadLine();
+        Console.WriteLine("\n=========================================");
+
+        switch (destino)
+        {
+            case "San José":
+                Console.WriteLine("Destino: San José");
+                Console.WriteLine(" Horario de vuelos:");
+                Console.WriteLine(" - 6:30 a.m. → 9:00 a.m.");
+                Console.WriteLine(" - 8:30 a.m. → 1:00 p.m.");
+                Console.WriteLine(" - 2:30 p.m. → 5:00 p.m.");
+                Console.WriteLine(" - 4:30 p.m. → 7:00 p.m.");
+                Console.WriteLine(" - 6:30 p.m. → 9:00 p.m.");
+                Console.WriteLine(" - 8:30 p.m. → 1:00 a.m.");
+                Console.WriteLine("Precios: Niños: $130, Adultos: $180, Equipaje adicional: $20");
+                break;
+
+            case "2":
+                Console.WriteLine("Regresando al menú principal...");
+                break;
+
+            default:
+                Console.WriteLine("Opción no válida. Intente nuevamente.");
+                break;
+        }
+    }
+
+    static void DestinatarioCol(col[] pais, ref int reserPais)
+
+    {
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t      SELECCIONE UN DESTINO");
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t 1. Ciudad de Mexico");
+        Console.WriteLine("\t 2. Regresar al menú");
+        Console.WriteLine("\t=========================================");
+        Console.Write("\nSeleccione una opción: ");
+
+        string destino = Console.ReadLine();
+        Console.WriteLine("\n=========================================");
+
+        switch (destino)
+        {
+            case "Bogotá":
+                Console.WriteLine("Destino: Bogotá");
+                Console.WriteLine(" Horario de vuelos:");
+                Console.WriteLine(" - 6:00 a.m. → 2:00 p.m.");
+                Console.WriteLine(" - 8:00 a.m. → 6:00 p.m.");
+                Console.WriteLine(" - 2:00 p.m. → 8:00 p.m.");
+                Console.WriteLine(" - 6:00 p.m. → 2:00 a.m.");
+                Console.WriteLine(" - 8:00 p.m. → 4:00 a.m.");
+                Console.WriteLine("Precios: Niños: $135, Adultos: $185, Equipaje adicional: $22");
+                break;
+
+            case "2":
+                Console.WriteLine("Regresando al menú principal...");
+                break;
+
+            default:
+                Console.WriteLine("Opción no válida. Intente nuevamente.");
+                break;
+        }
+    }
+
+    static void DestinatarioPeru(peru [] pais, ref int reserPais)
+
+    {
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t      SELECCIONE UN DESTINO");
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t 1. Ciudad de Mexico");
+        Console.WriteLine("\t 2. Regresar al menú");
+        Console.WriteLine("\t=========================================");
+        Console.Write("\nSeleccione una opción: ");
+
+        string destino = Console.ReadLine();
+        Console.WriteLine("\n=========================================");
+
+        switch (destino)
+        {
+            case "Lima":
+                Console.WriteLine("Destino: Lima");
+                Console.WriteLine(" Horario de vuelos:");
+                Console.WriteLine(" - 7:15 a.m. → 2:15 p.m.");
+                Console.WriteLine(" - 9:15 a.m. → 4:15 p.m.");
+                Console.WriteLine(" - 3:15 p.m. → 8:15 p.m.");
+                Console.WriteLine(" - 7:15 p.m. → 2:15 a.m.");
+                Console.WriteLine(" - 1:15 a.m. → 6:15 a.m.");
+                Console.WriteLine("Precios: Niños: $140, Adultos: $190, Equipaje adicional: $25");
+                break;
+
+            case "2":
+                Console.WriteLine("Regresando al menú principal...");
+                break;
+
+            default:
+                Console.WriteLine("Opción no válida. Intente nuevamente.");
+                break;
+        }
+    }
+
+
+    static void DestinatarioEsp(esp[] pais, ref int reserPais)
+
+    {
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t      SELECCIONE UN DESTINO");
+        Console.WriteLine("\t=========================================");
+        Console.WriteLine("\t 1. Ciudad de Mexico");
+        Console.WriteLine("\t 2. Regresar al menú");
+        Console.WriteLine("\t=========================================");
+        Console.Write("\nSeleccione una opción: ");
+
+        string destino = Console.ReadLine();
+        Console.WriteLine("\n=========================================");
+
+        switch (destino)
+        {
+            case "Madrid":
+                Console.WriteLine("Destino: Madrid");
+                Console.WriteLine(" Horario de vuelos:");
+                Console.WriteLine(" - 5:00 p.m. → 8:00 a.m.");
+                Console.WriteLine(" - 7:00 a.m. → 1:00 a.m.");
+                Console.WriteLine(" - 9:00 a.m. → 3:00 a.m.");
+                Console.WriteLine(" - 1:00 p.m. → 7:00 a.m.");
+                Console.WriteLine(" - 3:00 p.m. → 9:00 a.m.");
+                Console.WriteLine(" - 5:00 p.m. → 3:00 a.m.");
+                Console.WriteLine(" - 7:00 p.m. → 1:00 p.m.");
+                Console.WriteLine(" - 9:00 p.m. → 5:00 p.m.");
+                Console.WriteLine("Precios: Niños: $500, Adultos: $650, Equipaje adicional: $100");
+                break;
+
+            case "2":
+                Console.WriteLine("Regresando al menú principal...");
+                break;
+
+            default:
+                Console.WriteLine("Opción no válida. Intente nuevamente.");
+                break;
+        }
+    }
 
 
 
