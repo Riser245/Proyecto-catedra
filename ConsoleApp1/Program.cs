@@ -17,6 +17,17 @@ class Vuelo
     public int asientosDisponibles;
 }
 
+class usa
+{
+    public int id;
+    public string escalas;
+    public string salida;
+    public string llegada;
+    public string horario;
+    public int capacidad;
+    public int asientosDisponibles;
+}
+
 class Paises
 {
     public int id;
@@ -43,6 +54,7 @@ class Reserva
 
 class Program
 {
+
     static bool AutenticarEmpleado()
     {
         string claveCorrecta = "admin123";
@@ -117,7 +129,7 @@ class Program
     }
 
 
-
+    //Reservas de  vuelo creo que va ser un monton de switches
     static void Reservavuelo(Destinosreserv[] Destino, ref int reservVuelo)
 
     {
@@ -128,9 +140,9 @@ class Program
         Paises[] pais = new Paises[100];
 
         int Paises;
-        Console.Write("\tEscoge el destino a reservar un vuelo ");
         Console.WriteLine("\t=========================================");
-        Console.WriteLine("\t Destinos a escoger");
+        Console.WriteLine("\t      SELECCIONE UN PAIS");
+        Console.WriteLine("\t=========================================");
         Console.WriteLine("\t 1. USA");
         Console.WriteLine("\t 2. Mexico");
         Console.WriteLine("\t 3. Colombia");
@@ -172,6 +184,8 @@ class Program
         }
     }
 
+
+
     static void Destinatario(Paises[] pais, ref int reserPais)
 
     {
@@ -182,66 +196,108 @@ class Program
         Destinosreserv[] reservVuelo = new Destinosreserv[100];
 
 
-        int Destinos;
-        Console.Write("\tEscoge el destino a reservar un vuelo ");
         Console.WriteLine("\t=========================================");
-        Console.WriteLine("\t Horarios a escoger");
+        Console.WriteLine("\t      SELECCIONE UN DESTINO");
+        Console.WriteLine("\t=========================================");
         Console.WriteLine("\t 1. Los Angeles");
-        Console.WriteLine("\t 2. New York");
+        Console.WriteLine("\t 2. Nueva York");
         Console.WriteLine("\t 3. Miami");
         Console.WriteLine("\t 4. Houston");
         Console.WriteLine("\t 5. Washington D.C");
-        Console.WriteLine("\t 6.Regresar al menu");
+        Console.WriteLine("\t 6. Regresar al menú");
         Console.WriteLine("\t=========================================");
-        Console.WriteLine("\n");
-        Destinos = int.Parse(Console.ReadLine());
-        Console.WriteLine("\n");
-        // Aqui funciona el switch con sus cases
-        switch (Destinos)
+        Console.Write("\nSeleccione una opción: ");
+
+        string destino = Console.ReadLine();
+        Console.WriteLine("\n=========================================");
+
+        switch (destino)
         {
-            case 1:
+            case "Los Angeles":
+                Console.WriteLine("Destino: Los Angeles");
+                Console.WriteLine(" Horario de vuelos:");
+                Console.WriteLine(" - 6:00 a.m. - 2:00 p.m.");
+                Console.WriteLine(" - 8:00 a.m. - 6:00 p.m.");
+                Console.WriteLine(" - 2:00 p.m. - 8:00 p.m.");
+                Console.WriteLine(" - 6:00 p.m. - 2:00 a.m.");
+                Console.WriteLine(" - 8:00 p.m. - 4:00 a.m.");
+                Console.WriteLine("Precios: Niños: $150, Adultos: $200, Equipaje adicional: $30");
+                break;
 
+            case "Nueva York":
+                Console.WriteLine("Destino: Nueva York");
+                Console.WriteLine("\t=========================================");
+                Console.WriteLine(" - 5:30 a.m. - 1:30 p.m.");
+                Console.WriteLine(" - 7:30 a.m. - 3:30 p.m.");
+                Console.WriteLine(" - 9:30 a.m. - 7:30 p.m.");
+                Console.WriteLine(" - 3:30 p.m. - 9:30 p.m.");
+                Console.WriteLine(" - 7:30 p.m. - 1:30 a.m.");
+                Console.WriteLine(" - 9:30 p.m. - 5:30 a.m.");
+                Console.WriteLine("Precios: Niños: $160, Adultos: $210, Equipaje adicional: $35");
                 break;
-            case 2:
 
+            case "Miami":
+                Console.WriteLine("Destino: Miami");
+                Console.WriteLine("\t=========================================");
+                Console.WriteLine(" Horario de vuelos:");
+                Console.WriteLine(" - 6:15 a.m. - 2:45 p.m.");
+                Console.WriteLine(" - 8:15 a.m. - 6:45 p.m.");
+                Console.WriteLine(" - 2:15 p.m. - 8:45 p.m.");
+                Console.WriteLine(" - 6:15 p.m. - 2:45 a.m.");
+                Console.WriteLine(" - 8:15 p.m. - 4:45 a.m.");
+                Console.WriteLine("Precios: Niños: $140, Adultos: $190, Equipaje adicional: $25");
                 break;
-            case 3:
 
+            case "Houston":
+                Console.WriteLine("Destino: Houston");
+                Console.WriteLine("\t=========================================");
+                Console.WriteLine(" Horario de vuelos:");
+                Console.WriteLine(" - 7:00 a.m. - 1:30 p.m.");
+                Console.WriteLine(" - 9:00 a.m. - 3:30 p.m.");
+                Console.WriteLine(" - 3:00 p.m. - 7:30 p.m.");
+                Console.WriteLine(" - 7:00 p.m. - 9:30 p.m.");
+                Console.WriteLine(" - 9:00 p.m. - 1:30 a.m.");
+                Console.WriteLine("Precios: Niños: $145, Adultos: $195, Equipaje adicional: $28");
                 break;
-            case 4:
-                RegistrarCliente(clientes, ref totalClientes);
+
+            case "Washington D.C":
+                Console.WriteLine("Destino: Washington D.C");
+                Console.WriteLine("\t=========================================");
+                Console.WriteLine(" - 6:45 a.m. - 2:45 p.m.");
+                Console.WriteLine(" - 8:45 a.m. - 4:45 p.m.");
+                Console.WriteLine(" - 2:45 p.m. - 6:45 p.m.");
+                Console.WriteLine(" - 4:45 p.m. - 8:45 p.m.");
+                Console.WriteLine(" - 6:45 p.m. - 2:45 a.m.");
+                Console.WriteLine(" - 8:45 p.m. - 4:45 a.m.");
+                Console.WriteLine("Precios: Niños: $145, Adultos: $195, Equipaje adicional: $28");
                 break;
-            case 5:
-                break;
-            case 6:
-                Reservavuelo(reservVuelo, ref rVuelo);
-                break;
-            case 7:
-                Environment.Exit(0); // esta instruccion se sale de un solo del programa
+
+            case "6":
+                Console.WriteLine("Regresando al menú principal...");
                 break;
 
             default:
-                Console.WriteLine("\t Opcion no definida.. intente de nuevo");
+                Console.WriteLine("Opción no válida. Intente nuevamente.");
                 break;
         }
+      }
+
+    
+
+
+
+    static void USA(usa[] DestUsa, ref string DestiUsa)
+    {
+        Console.WriteLine("Seleccione un destino: Los Ángeles, Nueva York, Miami, Houston");
+        
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
     static void Menu()
     {
+        Console.Clear();
         Cliente[] clientes = new Cliente[100];
         Vuelo[] vuelos = new Vuelo[10];
         Reserva[] reservas = new Reserva[100];
