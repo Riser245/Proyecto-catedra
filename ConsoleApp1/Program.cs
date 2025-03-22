@@ -271,62 +271,23 @@ class Program
         switch (destino)
         {
             case "Los Angeles":
-                Console.WriteLine("Destino: Los Angeles");
-                Console.WriteLine(" Horario de vuelos:");
-                Console.WriteLine(" - 6:00 a.m. - 2:00 p.m.");
-                Console.WriteLine(" - 8:00 a.m. - 6:00 p.m.");
-                Console.WriteLine(" - 2:00 p.m. - 8:00 p.m.");
-                Console.WriteLine(" - 6:00 p.m. - 2:00 a.m.");
-                Console.WriteLine(" - 8:00 p.m. - 4:00 a.m.");
-                Console.WriteLine("Precios: Niños: $150, Adultos: $200, Equipaje adicional: $30");
+                MostrarVuelos("Los Angeles", new string[] { "6:00 a.m. - 9:00 a.m.", "8:00 a.m. - 11:00 a.m.", "2:00 p.m. - 5:00 p.m.", "6:00 p.m. - 9:00 p.m." }, "$150", "$200", "$30");
                 break;
 
             case "Nueva York":
-                Console.WriteLine("Destino: Nueva York");
-                Console.WriteLine("\t=========================================");
-                Console.WriteLine(" - 5:30 a.m. - 1:30 p.m.");
-                Console.WriteLine(" - 7:30 a.m. - 3:30 p.m.");
-                Console.WriteLine(" - 9:30 a.m. - 7:30 p.m.");
-                Console.WriteLine(" - 3:30 p.m. - 9:30 p.m.");
-                Console.WriteLine(" - 7:30 p.m. - 1:30 a.m.");
-                Console.WriteLine(" - 9:30 p.m. - 5:30 a.m.");
-                Console.WriteLine("Precios: Niños: $160, Adultos: $210, Equipaje adicional: $35");
+                MostrarVuelos("New York", new string[] { "5:30 a.m. - 8:30 a.m.", "7:30 a.m. - 10:30 a.m.", "9:30 a.m. - 12:30 p.m.", "3:30 p.m. - 6:30 p.m." }, "$160", "$210", "$35");
                 break;
 
             case "Miami":
-                Console.WriteLine("Destino: Miami");
-                Console.WriteLine("\t=========================================");
-                Console.WriteLine(" Horario de vuelos:");
-                Console.WriteLine(" - 6:15 a.m. - 2:45 p.m.");
-                Console.WriteLine(" - 8:15 a.m. - 6:45 p.m.");
-                Console.WriteLine(" - 2:15 p.m. - 8:45 p.m.");
-                Console.WriteLine(" - 6:15 p.m. - 2:45 a.m.");
-                Console.WriteLine(" - 8:15 p.m. - 4:45 a.m.");
-                Console.WriteLine("Precios: Niños: $140, Adultos: $190, Equipaje adicional: $25");
+                MostrarVuelos("Miami", new string[] { "6:15 a.m. - 9:15 a.m.", "8:15 a.m. - 11:15 a.m.", "2:15 p.m. - 5:15 p.m.", "6:15 p.m. - 9:15 p.m." }, "$140", "$190", "$25");
                 break;
 
             case "Houston":
-                Console.WriteLine("Destino: Houston");
-                Console.WriteLine("\t=========================================");
-                Console.WriteLine(" Horario de vuelos:");
-                Console.WriteLine(" - 7:00 a.m. - 1:30 p.m.");
-                Console.WriteLine(" - 9:00 a.m. - 3:30 p.m.");
-                Console.WriteLine(" - 3:00 p.m. - 7:30 p.m.");
-                Console.WriteLine(" - 7:00 p.m. - 9:30 p.m.");
-                Console.WriteLine(" - 9:00 p.m. - 1:30 a.m.");
-                Console.WriteLine("Precios: Niños: $145, Adultos: $195, Equipaje adicional: $28");
+                MostrarVuelos("Houston", new string[] { "7:00 a.m. - 10:00 a.m.", "9:00 a.m. - 12:00 p.m.", "3:00 p.m. - 6:00 p.m.", "7:00 p.m. - 10:00 p.m." }, "$145", "$195", "$28");
                 break;
 
             case "Washington D.C":
-                Console.WriteLine("Destino: Washington D.C");
-                Console.WriteLine("\t=========================================");
-                Console.WriteLine(" - 6:45 a.m. - 2:45 p.m.");
-                Console.WriteLine(" - 8:45 a.m. - 4:45 p.m.");
-                Console.WriteLine(" - 2:45 p.m. - 6:45 p.m.");
-                Console.WriteLine(" - 4:45 p.m. - 8:45 p.m.");
-                Console.WriteLine(" - 6:45 p.m. - 2:45 a.m.");
-                Console.WriteLine(" - 8:45 p.m. - 4:45 a.m.");
-                Console.WriteLine("Precios: Niños: $145, Adultos: $195, Equipaje adicional: $28");
+                MostrarVuelos("Washington D.C", new string[] { "6:45 a.m. - 9:45 a.m.", "8:45 a.m. - 11:45 a.m.", "2:45 p.m. - 5:45 p.m.", "4:45 p.m. - 7:45 p.m." }, "$145", "$195", "$28");
                 break;
 
             case "6":
@@ -358,15 +319,7 @@ class Program
         switch (destino)
         {
             case "Ciudad de Mexico":
-                Console.WriteLine("Destino: Ciudad de Mexico");
-                Console.WriteLine(" Horario de vuelos:");
-                Console.WriteLine(" - 6:30 a.m. → 9:00 a.m.");
-                Console.WriteLine(" - 8:30 a.m. → 1:00 p.m.");
-                Console.WriteLine(" - 2:30 p.m. → 5:00 p.m.");
-                Console.WriteLine(" - 4:30 p.m. → 7:00 p.m.");
-                Console.WriteLine(" - 6:30 p.m. → 9:00 p.m.");
-                Console.WriteLine(" - 8:30 p.m. → 1:00 a.m.");
-                Console.WriteLine("Precios: Niños: $130, Adultos: $180, Equipaje adicional: $20");
+                MostrarVuelos("Ciudad de México", new string[] { "6:30 a.m. - 9:00 a.m.", "8:30 a.m. - 1:00 p.m.", "2:30 p.m. - 5:00 p.m.", "4:30 p.m. - 7:00 p.m.", "6:30 p.m. - 9:00 p.m.", "8:30 p.m. → 1:00 a.m." }, "$130", "$180", "$20");
                 break;
 
             case "2":
@@ -398,15 +351,7 @@ class Program
         switch (destino)
         {
             case "San José":
-                Console.WriteLine("Destino: San José");
-                Console.WriteLine(" Horario de vuelos:");
-                Console.WriteLine(" - 6:30 a.m. → 9:00 a.m.");
-                Console.WriteLine(" - 8:30 a.m. → 1:00 p.m.");
-                Console.WriteLine(" - 2:30 p.m. → 5:00 p.m.");
-                Console.WriteLine(" - 4:30 p.m. → 7:00 p.m.");
-                Console.WriteLine(" - 6:30 p.m. → 9:00 p.m.");
-                Console.WriteLine(" - 8:30 p.m. → 1:00 a.m.");
-                Console.WriteLine("Precios: Niños: $130, Adultos: $180, Equipaje adicional: $20");
+                MostrarVuelos("San José", new string[] { "5:45 a.m. - 8:15 a.m.", "9:45 a.m. - 4:15 p.m.", "1:45 p.m. - 6:15 p.m.", "7:45 p.m. - 2:15 a.m." }, "$120", "$170", "$18");
                 break;
 
             case "2":
@@ -436,14 +381,7 @@ class Program
         switch (destino)
         {
             case "Bogotá":
-                Console.WriteLine("Destino: Bogotá");
-                Console.WriteLine(" Horario de vuelos:");
-                Console.WriteLine(" - 6:00 a.m. → 2:00 p.m.");
-                Console.WriteLine(" - 8:00 a.m. → 6:00 p.m.");
-                Console.WriteLine(" - 2:00 p.m. → 8:00 p.m.");
-                Console.WriteLine(" - 6:00 p.m. → 2:00 a.m.");
-                Console.WriteLine(" - 8:00 p.m. → 4:00 a.m.");
-                Console.WriteLine("Precios: Niños: $135, Adultos: $185, Equipaje adicional: $22");
+                MostrarVuelos("Bogotá", new string[] { "6:00 a.m. - 2:00 p.m.", "8:00 a.m. - 6:00 p.m.", "2:00 p.m. - 8:00 p.m.", "6:00 p.m. - 2:00 a.m.", "8:00 p.m. - 4:00 a.m." }, "$135", "$185", "$22");
                 break;
 
             case "2":
@@ -473,14 +411,7 @@ class Program
         switch (destino)
         {
             case "Lima":
-                Console.WriteLine("Destino: Lima");
-                Console.WriteLine(" Horario de vuelos:");
-                Console.WriteLine(" - 7:15 a.m. → 2:15 p.m.");
-                Console.WriteLine(" - 9:15 a.m. → 4:15 p.m.");
-                Console.WriteLine(" - 3:15 p.m. → 8:15 p.m.");
-                Console.WriteLine(" - 7:15 p.m. → 2:15 a.m.");
-                Console.WriteLine(" - 1:15 a.m. → 6:15 a.m.");
-                Console.WriteLine("Precios: Niños: $140, Adultos: $190, Equipaje adicional: $25");
+                MostrarVuelos("Lima", new string[] { "7:15 a.m. - 2:15 p.m.", "9:15 a.m. - 4:15 p.m.", "3:15 p.m. - 8:15 p.m.", "7:15 p.m. - 2:15 a.m.", "1:15 a.m. - 6:15 a.m." }, "$140", "$190", "$25");
                 break;
 
             case "2":
@@ -511,17 +442,7 @@ class Program
         switch (destino)
         {
             case "Madrid":
-                Console.WriteLine("Destino: Madrid");
-                Console.WriteLine(" Horario de vuelos:");
-                Console.WriteLine(" - 5:00 p.m. → 8:00 a.m.");
-                Console.WriteLine(" - 7:00 a.m. → 1:00 a.m.");
-                Console.WriteLine(" - 9:00 a.m. → 3:00 a.m.");
-                Console.WriteLine(" - 1:00 p.m. → 7:00 a.m.");
-                Console.WriteLine(" - 3:00 p.m. → 9:00 a.m.");
-                Console.WriteLine(" - 5:00 p.m. → 3:00 a.m.");
-                Console.WriteLine(" - 7:00 p.m. → 1:00 p.m.");
-                Console.WriteLine(" - 9:00 p.m. → 5:00 p.m.");
-                Console.WriteLine("Precios: Niños: $500, Adultos: $650, Equipaje adicional: $100");
+                MostrarVuelos("Madrid", new string[] { "5:00 p.m. - 8:00 a.m.", "7:00 a.m. - 1:00 a.m.", "9:00 a.m. - 3:00 a.m.", "1:00 p.m. - 7:00 a.m.", "3:00 p.m. - 9:00 a.m.", "5:00 p.m. - 3:00 a.m.", "7:00 p.m. → 1:00 p.m.", "9:00 p.m. → 5:00 p.m." }, "$500", "$650", "$100");
                 break;
 
             case "2":
@@ -534,7 +455,28 @@ class Program
         }
     }
 
+   
 
+    static void MostrarVuelos(string destino, string[] horarios, string precioNino, string precioAdulto, string equipaje)
+    {
+        Console.WriteLine($"Destino: {destino}");
+        Console.WriteLine(" Horario de vuelos:");
+        for (int i = 0; i < horarios.Length; i++)
+        {
+            Console.WriteLine($" {i + 1}. {horarios[i]}");
+        }
+        Console.WriteLine($"Precios: Niños: {precioNino}, Adultos: {precioAdulto}, Equipaje adicional: {equipaje}");
+        Console.Write("Seleccione el número de vuelo que desea: ");
+        string seleccionVuelo = Console.ReadLine();
+        if (int.TryParse(seleccionVuelo, out int vueloIndex) && vueloIndex > 0 && vueloIndex <= horarios.Length)
+        {
+            Console.WriteLine($"Ha seleccionado el vuelo {horarios[vueloIndex - 1]}");
+        }
+        else
+        {
+            Console.WriteLine("Selección no válida.");
+        }
+    }
 
     static void Menu()
     {
