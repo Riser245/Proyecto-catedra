@@ -157,7 +157,7 @@ class Program
         switch (Paises)
         {
             case 1:
-                Destinatario(pais, ref reserPais);
+                DestinatarioUsa(pais, ref reserPais);
                 break;
             case 2:
 
@@ -186,14 +186,9 @@ class Program
 
 
 
-    static void Destinatario(Paises[] pais, ref int reserPais)
+    static void DestinatarioUsa(Paises[] pais, ref int reserPais)
 
     {
-        Cliente[] clientes = new Cliente[100];
-        Vuelo[] vuelos = new Vuelo[10];
-        Reserva[] reservas = new Reserva[100];
-        int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
-        Destinosreserv[] reservVuelo = new Destinosreserv[100];
 
 
         Console.WriteLine("\t=========================================");
