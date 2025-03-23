@@ -319,7 +319,7 @@ class Program
         switch (destino)
         {
             case "Ciudad de Mexico":
-                MostrarVuelos("Ciudad de México", new string[] { "6:30 a.m. - 9:00 a.m.", "8:30 a.m. - 1:00 p.m.", "2:30 p.m. - 5:00 p.m.", "4:30 p.m. - 7:00 p.m.", "6:30 p.m. - 9:00 p.m.", "8:30 p.m. → 1:00 a.m." }, "$130", "$180", "$20");
+                MostrarVuelos("Ciudad de México", new string[] { "6:30 a.m. - 9:00 a.m.", "8:30 a.m. - 1:00 p.m.", "2:30 p.m. - 5:00 p.m.", "4:30 p.m. - 7:00 p.m.", "6:30 p.m. - 9:00 p.m.", "8:30 p.m. - 1:00 a.m." }, "$130", "$180", "$20");
                 break;
 
             case "2":
@@ -442,7 +442,7 @@ class Program
         switch (destino)
         {
             case "Madrid":
-                MostrarVuelos("Madrid", new string[] { "5:00 p.m. - 8:00 a.m.", "7:00 a.m. - 1:00 a.m.", "9:00 a.m. - 3:00 a.m.", "1:00 p.m. - 7:00 a.m.", "3:00 p.m. - 9:00 a.m.", "5:00 p.m. - 3:00 a.m.", "7:00 p.m. → 1:00 p.m.", "9:00 p.m. → 5:00 p.m." }, "$500", "$650", "$100");
+                MostrarVuelos("Madrid", new string[] { "5:00 p.m. - 8:00 a.m.", "7:00 a.m. - 1:00 a.m.", "9:00 a.m. - 3:00 a.m.", "1:00 p.m. - 7:00 a.m.", "3:00 p.m. - 9:00 a.m.", "5:00 p.m. - 3:00 a.m.", "7:00 p.m. - 1:00 p.m.", "9:00 p.m. - 5:00 p.m." }, "$500", "$650", "$100");
                 break;
 
             case "2":
