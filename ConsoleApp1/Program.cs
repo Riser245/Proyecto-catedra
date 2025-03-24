@@ -231,10 +231,11 @@ class Program
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\t 1. USA");
         Console.WriteLine("\t 2. Mexico");
-        Console.WriteLine("\t 3. Colombia");
-        Console.WriteLine("\t 4. Peru");
-        Console.WriteLine("\t 5. España");
-        Console.WriteLine("\t 6. Regresar al menu");
+        Console.WriteLine("\t 3. Costa Rica");
+        Console.WriteLine("\t 4. Colombia");
+        Console.WriteLine("\t 5. Peru");
+        Console.WriteLine("\t 6. España");
+        Console.WriteLine("\t 7. Regresar al menu");
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\n");
         Paises = int.Parse(Console.ReadLine());
@@ -263,6 +264,9 @@ class Program
                 DestinatarioEsp(ESP, ref reserPais);
                 break;
             case 7:
+                Menu();
+                break;
+            case 8:
                 Environment.Exit(0); // esta instruccion se sale de un solo del programa
                 break;
 
@@ -278,7 +282,8 @@ class Program
 
     {
 
-
+        Destinosreserv[] reservVuelo = new Destinosreserv[100];
+        int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\t      SELECCIONE UN DESTINO");
         Console.WriteLine("\t=========================================");
@@ -318,6 +323,7 @@ class Program
 
             case "6":
                 Console.WriteLine("Regresando al menú principal...");
+                Reservavuelo(reservVuelo, ref rVuelo);
                 break;
 
             default:
@@ -331,6 +337,8 @@ class Program
     static void DestinatarioMex(mex[] pais, ref int reserPais)
 
     {
+        Destinosreserv[] reservVuelo = new Destinosreserv[100];
+        int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\t      SELECCIONE UN DESTINO");
         Console.WriteLine("\t=========================================");
@@ -350,6 +358,7 @@ class Program
 
             case "2":
                 Console.WriteLine("Regresando al menú principal...");
+                Reservavuelo(reservVuelo, ref rVuelo);
                 break;
 
             default:
@@ -363,10 +372,12 @@ class Program
     static void DestinatarioCost(cost[] pais, ref int reserPais)
 
     {
+        Destinosreserv[] reservVuelo = new Destinosreserv[100];
+        int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\t      SELECCIONE UN DESTINO");
         Console.WriteLine("\t=========================================");
-        Console.WriteLine("\t 1. Ciudad de Mexico");
+        Console.WriteLine("\t 1. San José");
         Console.WriteLine("\t 2. Regresar al menú");
         Console.WriteLine("\t=========================================");
         Console.Write("\nSeleccione una opción: ");
@@ -382,6 +393,7 @@ class Program
 
             case "2":
                 Console.WriteLine("Regresando al menú principal...");
+                Reservavuelo(reservVuelo, ref rVuelo);
                 break;
 
             default:
@@ -393,10 +405,12 @@ class Program
     static void DestinatarioCol(col[] pais, ref int reserPais)
 
     {
+        Destinosreserv[] reservVuelo = new Destinosreserv[100];
+        int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\t      SELECCIONE UN DESTINO");
         Console.WriteLine("\t=========================================");
-        Console.WriteLine("\t 1. Ciudad de Mexico");
+        Console.WriteLine("\t 1. Bogotá");
         Console.WriteLine("\t 2. Regresar al menú");
         Console.WriteLine("\t=========================================");
         Console.Write("\nSeleccione una opción: ");
@@ -412,6 +426,7 @@ class Program
 
             case "2":
                 Console.WriteLine("Regresando al menú principal...");
+                Reservavuelo(reservVuelo, ref rVuelo);
                 break;
 
             default:
@@ -423,10 +438,12 @@ class Program
     static void DestinatarioPeru(peru [] pais, ref int reserPais)
 
     {
+        Destinosreserv[] reservVuelo = new Destinosreserv[100];
+        int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\t      SELECCIONE UN DESTINO");
         Console.WriteLine("\t=========================================");
-        Console.WriteLine("\t 1. Ciudad de Mexico");
+        Console.WriteLine("\t 1. Lima");
         Console.WriteLine("\t 2. Regresar al menú");
         Console.WriteLine("\t=========================================");
         Console.Write("\nSeleccione una opción: ");
@@ -442,6 +459,7 @@ class Program
 
             case "2":
                 Console.WriteLine("Regresando al menú principal...");
+                Reservavuelo(reservVuelo, ref rVuelo);
                 break;
 
             default:
@@ -454,10 +472,13 @@ class Program
     static void DestinatarioEsp(esp[] pais, ref int reserPais)
 
     {
+
+        Destinosreserv[] reservVuelo = new Destinosreserv[100];
+        int totalClientes = 0, totalVuelos = 0, rVuelo = 0;
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\t      SELECCIONE UN DESTINO");
         Console.WriteLine("\t=========================================");
-        Console.WriteLine("\t 1. Ciudad de Mexico");
+        Console.WriteLine("\t 1. Madrid");
         Console.WriteLine("\t 2. Regresar al menú");
         Console.WriteLine("\t=========================================");
         Console.Write("\nSeleccione una opción: ");
@@ -473,6 +494,7 @@ class Program
 
             case "2":
                 Console.WriteLine("Regresando al menú principal...");
+                Reservavuelo(reservVuelo, ref rVuelo);
                 break;
 
             default:
