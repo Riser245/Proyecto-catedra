@@ -5,7 +5,13 @@ class Cliente
 {
     public int id;
     public string nombre;
+    public string apellido;    
     public string pasaporte;
+    public string correo;
+    public string nacimiento;
+    public string telefono;
+    public string direccion;
+    public string paisregion;
 }
 
 class Vuelo
@@ -139,10 +145,30 @@ class Program
         Console.Write("Ingrese el nombre del cliente: ");
         clientes[totalClientes].nombre = Console.ReadLine();
 
+        Console.Write("Ingrese el apellido del cliente: ");
+        clientes[totalClientes].apellido = Console.ReadLine();
+
         Console.Write("Ingrese el número de pasaporte: ");
         clientes[totalClientes].pasaporte = Console.ReadLine();
 
-        totalClientes++;
+        Console.Write("Ingrese el correo electronico del cliente: ");
+        clientes[totalClientes].correo = Console.ReadLine();
+
+        Console.Write("Ingrese la fecha de nacimiento del cliente: ");
+        clientes[totalClientes].nacimiento = Console.ReadLine();
+
+        Console.Write("Ingrese el número de telefono del cliente: ");
+        clientes[totalClientes].telefono = Console.ReadLine();
+
+        Console.Write("Ingrese la direccion del cliente: ");
+        clientes[totalClientes].direccion = Console.ReadLine();
+
+        Console.Write("Ingrese el pais o region de procedencia del cliente: ");
+        clientes[totalClientes].paisregion = Console.ReadLine();
+
+
+
+    totalClientes++;
         Console.WriteLine("Cliente registrado con éxito!\n");
     }
 
