@@ -477,7 +477,12 @@ class Program
                 MostrarVuelos("Lima", new string[] { "7:15 a.m. - 2:15 p.m.", "9:15 a.m. - 4:15 p.m.", "3:15 p.m. - 8:15 p.m.", "7:15 p.m. - 2:15 a.m.", "1:15 a.m. - 6:15 a.m." }, "$140", "$190", "$25");
                 break;
 
-            case "2":
+            case "Escalas":
+                {
+                    break;
+                }
+
+            case "3":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -512,7 +517,11 @@ class Program
                 MostrarVuelos("Madrid", new string[] { "5:00 p.m. - 8:00 a.m.", "7:00 a.m. - 1:00 a.m.", "9:00 a.m. - 3:00 a.m.", "1:00 p.m. - 7:00 a.m.", "3:00 p.m. - 9:00 a.m.", "5:00 p.m. - 3:00 a.m.", "7:00 p.m. - 1:00 p.m.", "9:00 p.m. - 5:00 p.m." }, "$500", "$650", "$100");
                 break;
 
-            case "2":
+            case "Escalas":
+                {
+                    break;
+                }
+            case "3":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -545,6 +554,8 @@ class Program
             Console.WriteLine("Selección no válida.");
         }
     }
+
+
 
     static void Menu()
     {
