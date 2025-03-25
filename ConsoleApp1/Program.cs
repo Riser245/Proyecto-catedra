@@ -196,6 +196,8 @@ class Program
         Console.Write("Ingrese el horario: ");
         vuelos[totalVuelos].horario = Console.ReadLine();
 
+        //aqui es de agregar la cantidad de asientos y alguna cosa que sea necesaria
+
         Console.Write("Ingrese la capacidad del vuelo: ");
         if (!int.TryParse(Console.ReadLine(), out int capacidad))
         {
