@@ -227,7 +227,6 @@ class Program
         peru[] PERU = new peru[100];
         esp[] ESP = new esp[100];
 
-        int Paises;
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\t      SELECCIONE UN PAIS");
         Console.WriteLine("\t=========================================");
@@ -240,35 +239,35 @@ class Program
         Console.WriteLine("\t 7. Regresar al menu");
         Console.WriteLine("\t=========================================");
         Console.WriteLine("\n");
-        Paises = int.Parse(Console.ReadLine());
+        string Paises = Console.ReadLine();
         Console.WriteLine("\n");
         // Aqui funciona el switch con sus cases
         switch (Paises)
         {
-            case 1:
+            case "USA":
                 DestinatarioUsa(USA, ref reserPais);
                 break;
-            case 2:
+            case "Mexico":
                 DestinatarioMex(MEX, ref reserPais);
 
                 break;
-            case 3:
+            case "Costa Rica":
                 DestinatarioCost(COST, ref reserPais);
 
                 break;
-            case 4:
+            case "Colombia":
                 DestinatarioCol(COL, ref reserPais);
                 break;
-            case 5:
+            case "Peru":
                 DestinatarioPeru(PERU, ref reserPais);
                 break;
-            case 6:
+            case "España":
                 DestinatarioEsp(ESP, ref reserPais);
                 break;
-            case 7:
+            case "Menu":
                 Menu();
                 break;
-            case 8:
+            case "Salir":
                 Environment.Exit(0); // esta instruccion se sale de un solo del programa
                 break;
 
@@ -323,7 +322,13 @@ class Program
                 MostrarVuelos("Washington D.C", new string[] { "6:45 a.m. - 9:45 a.m.", "8:45 a.m. - 11:45 a.m.", "2:45 p.m. - 5:45 p.m.", "4:45 p.m. - 7:45 p.m." }, "$145", "$195", "$28");
                 break;
 
-            case "6":
+
+            case "Escalas":
+                {
+                    break;
+                }
+
+            case "7":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -358,7 +363,11 @@ class Program
                 MostrarVuelos("Ciudad de México", new string[] { "6:30 a.m. - 9:00 a.m.", "8:30 a.m. - 1:00 p.m.", "2:30 p.m. - 5:00 p.m.", "4:30 p.m. - 7:00 p.m.", "6:30 p.m. - 9:00 p.m.", "8:30 p.m. - 1:00 a.m." }, "$130", "$180", "$20");
                 break;
 
-            case "2":
+            case "Escalas":
+             {
+                    break;
+             }
+            case "3":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -393,7 +402,11 @@ class Program
                 MostrarVuelos("San José", new string[] { "5:45 a.m. - 8:15 a.m.", "9:45 a.m. - 4:15 p.m.", "1:45 p.m. - 6:15 p.m.", "7:45 p.m. - 2:15 a.m." }, "$120", "$170", "$18");
                 break;
 
-            case "2":
+            case "Escalas":
+                {
+                    break;
+                }
+            case "3":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -426,7 +439,12 @@ class Program
                 MostrarVuelos("Bogotá", new string[] { "6:00 a.m. - 2:00 p.m.", "8:00 a.m. - 6:00 p.m.", "2:00 p.m. - 8:00 p.m.", "6:00 p.m. - 2:00 a.m.", "8:00 p.m. - 4:00 a.m." }, "$135", "$185", "$22");
                 break;
 
-            case "2":
+            case "Escalas":
+                {
+                    break;
+                }
+
+            case "3":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
