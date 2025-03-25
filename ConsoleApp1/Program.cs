@@ -303,32 +303,26 @@ class Program
         switch (destino)
         {
             case "Los Angeles":
-                MostrarVuelos("Los Angeles", new string[] { "6:00 a.m. - 9:00 a.m.", "8:00 a.m. - 11:00 a.m.", "2:00 p.m. - 5:00 p.m.", "6:00 p.m. - 9:00 p.m." }, "$150", "$200", "$30");
+                MostrarVuelos("Los Angeles", new string[] { "6:00 a.m. - 9:00 a.m.", "8:00 a.m. - 11:00 a.m.", "2:00 p.m. - 5:00 p.m.", "6:00 p.m. - 9:00 p.m." }, "$150", "$200", "$30", new string[] { "Sin escalas" });
                 break;
 
             case "Nueva York":
-                MostrarVuelos("New York", new string[] { "5:30 a.m. - 8:30 a.m.", "7:30 a.m. - 10:30 a.m.", "9:30 a.m. - 12:30 p.m.", "3:30 p.m. - 6:30 p.m." }, "$160", "$210", "$35");
+                MostrarVuelos("New York", new string[] { "5:30 a.m. - 8:30 a.m.", "7:30 a.m. - 10:30 a.m.", "9:30 a.m. - 12:30 p.m.", "3:30 p.m. - 6:30 p.m." }, "$160", "$210", "$35", new string[] { "Atlanta", "Miami" });
                 break;
 
             case "Miami":
-                MostrarVuelos("Miami", new string[] { "6:15 a.m. - 9:15 a.m.", "8:15 a.m. - 11:15 a.m.", "2:15 p.m. - 5:15 p.m.", "6:15 p.m. - 9:15 p.m." }, "$140", "$190", "$25");
+                MostrarVuelos("Miami", new string[] { "6:15 a.m. - 9:15 a.m.", "8:15 a.m. - 11:15 a.m.", "2:15 p.m. - 5:15 p.m.", "6:15 p.m. - 9:15 p.m." }, "$140", "$190", "$25", new string[] { "Sin escalas" });
                 break;
 
             case "Houston":
-                MostrarVuelos("Houston", new string[] { "7:00 a.m. - 10:00 a.m.", "9:00 a.m. - 12:00 p.m.", "3:00 p.m. - 6:00 p.m.", "7:00 p.m. - 10:00 p.m." }, "$145", "$195", "$28");
+                MostrarVuelos("Houston", new string[] { "7:00 a.m. - 10:00 a.m.", "9:00 a.m. - 12:00 p.m.", "3:00 p.m. - 6:00 p.m.", "7:00 p.m. - 10:00 p.m." }, "$145", "$195", "$28", new string[] { "Dallas" });
                 break;
 
             case "Washington D.C":
-                MostrarVuelos("Washington D.C", new string[] { "6:45 a.m. - 9:45 a.m.", "8:45 a.m. - 11:45 a.m.", "2:45 p.m. - 5:45 p.m.", "4:45 p.m. - 7:45 p.m." }, "$145", "$195", "$28");
+                MostrarVuelos("Washington D.C", new string[] { "6:45 a.m. - 9:45 a.m.", "8:45 a.m. - 11:45 a.m.", "2:45 p.m. - 5:45 p.m.", "4:45 p.m. - 7:45 p.m." }, "$145", "$195", "$28", new string[] { "Charlotte" });
                 break;
 
-
-            case "Escalas":
-                {
-                    break;
-                }
-
-            case "7":
+            case "6":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -360,14 +354,10 @@ class Program
         switch (destino)
         {
             case "Ciudad de Mexico":
-                MostrarVuelos("Ciudad de México", new string[] { "6:30 a.m. - 9:00 a.m.", "8:30 a.m. - 1:00 p.m.", "2:30 p.m. - 5:00 p.m.", "4:30 p.m. - 7:00 p.m.", "6:30 p.m. - 9:00 p.m.", "8:30 p.m. - 1:00 a.m." }, "$130", "$180", "$20");
+                MostrarVuelos("Ciudad de México", new string[] { "5:00 a.m. - 10:00 a.m.", "9:00 a.m. - 2:00 p.m.", "3:00 p.m. - 8:00 p.m." }, "$120", "$170", "$20", new string[] { "Guadalajara", "Monterrey" });
                 break;
 
-            case "Escalas":
-             {
-                    break;
-             }
-            case "3":
+            case "2":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -399,14 +389,10 @@ class Program
         switch (destino)
         {
             case "San José":
-                MostrarVuelos("San José", new string[] { "5:45 a.m. - 8:15 a.m.", "9:45 a.m. - 4:15 p.m.", "1:45 p.m. - 6:15 p.m.", "7:45 p.m. - 2:15 a.m." }, "$120", "$170", "$18");
+                MostrarVuelos("San José", new string[] { "6:00 a.m. - 11:00 a.m.", "10:00 a.m. - 3:00 p.m.", "4:00 p.m. - 9:00 p.m." }, "$130", "$180", "$25", new string[] { "Panamá" });
                 break;
 
-            case "Escalas":
-                {
-                    break;
-                }
-            case "3":
+            case "2":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -436,15 +422,10 @@ class Program
         switch (destino)
         {
             case "Bogotá":
-                MostrarVuelos("Bogotá", new string[] { "6:00 a.m. - 2:00 p.m.", "8:00 a.m. - 6:00 p.m.", "2:00 p.m. - 8:00 p.m.", "6:00 p.m. - 2:00 a.m.", "8:00 p.m. - 4:00 a.m." }, "$135", "$185", "$22");
+                MostrarVuelos("Bogotá", new string[] { "6:00 a.m. - 2:00 p.m.", "8:00 a.m. - 6:00 p.m.", "10:00 a.m. - 8:00 p.m.", "2:00 p.m. - 11:00 p.m." }, "$135", "$185", "$22", new string[] { "Panamá", "Miami", "Lima" });
                 break;
-
-            case "Escalas":
-                {
-                    break;
-                }
-
-            case "3":
+ 
+            case "2":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -474,15 +455,10 @@ class Program
         switch (destino)
         {
             case "Lima":
-                MostrarVuelos("Lima", new string[] { "7:15 a.m. - 2:15 p.m.", "9:15 a.m. - 4:15 p.m.", "3:15 p.m. - 8:15 p.m.", "7:15 p.m. - 2:15 a.m.", "1:15 a.m. - 6:15 a.m." }, "$140", "$190", "$25");
+                MostrarVuelos("Lima", new string[] { "7:00 a.m. - 3:00 p.m.", "9:00 a.m. - 7:00 p.m.", "11:00 a.m. - 9:00 p.m." }, "$140", "$190", "$25", new string[] { "Bogotá", "Santiago" });
                 break;
 
-            case "Escalas":
-                {
-                    break;
-                }
-
-            case "3":
+            case "2":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -514,14 +490,10 @@ class Program
         switch (destino)
         {
             case "Madrid":
-                MostrarVuelos("Madrid", new string[] { "5:00 p.m. - 8:00 a.m.", "7:00 a.m. - 1:00 a.m.", "9:00 a.m. - 3:00 a.m.", "1:00 p.m. - 7:00 a.m.", "3:00 p.m. - 9:00 a.m.", "5:00 p.m. - 3:00 a.m.", "7:00 p.m. - 1:00 p.m.", "9:00 p.m. - 5:00 p.m." }, "$500", "$650", "$100");
+                MostrarVuelos("Madrid", new string[] { "8:00 a.m. - 11:00 p.m.", "2:00 p.m. - 5:00 a.m.", "10:00 p.m. - 1:00 p.m." }, "$500", "$750", "$50", new string[] { "Miami", "Paris" });
                 break;
 
-            case "Escalas":
-                {
-                    break;
-                }
-            case "3":
+            case "2":
                 Console.WriteLine("Regresando al menú principal...");
                 Reservavuelo(reservVuelo, ref rVuelo);
                 break;
@@ -532,9 +504,9 @@ class Program
         }
     }
 
-   
 
-    static void MostrarVuelos(string destino, string[] horarios, string precioNino, string precioAdulto, string equipaje)
+
+    static void MostrarVuelos(string destino, string[] horarios, string precioNino, string precioAdulto, string equipaje, string[] escalas)
     {
         Console.WriteLine($"Destino: {destino}");
         Console.WriteLine(" Horario de vuelos:");
@@ -543,6 +515,11 @@ class Program
             Console.WriteLine($" {i + 1}. {horarios[i]}");
         }
         Console.WriteLine($"Precios: Niños: {precioNino}, Adultos: {precioAdulto}, Equipaje adicional: {equipaje}");
+        Console.WriteLine(" Escalas:");
+        foreach (var escala in escalas)
+        {
+            Console.WriteLine($" - {escala}");
+        }
         Console.Write("Seleccione el número de vuelo que desea: ");
         string seleccionVuelo = Console.ReadLine();
         if (int.TryParse(seleccionVuelo, out int vueloIndex) && vueloIndex > 0 && vueloIndex <= horarios.Length)
