@@ -524,7 +524,7 @@ struct Program
         string seleccionVuelo = Console.ReadLine();
         if (int.TryParse(seleccionVuelo, out int vueloIndex) && vueloIndex > 0 && vueloIndex <= horarios.Length)
         {
-            Console.WriteLine($"Ha seleccionado el vuelo {horarios[vueloIndex - 1]} su vuelo ha sido registrado");
+            Console.WriteLine($"Ha seleccionado el vuelo {horarios[vueloIndex - 1]} su vuelo ha sido reservado");
         }
         else
         {
