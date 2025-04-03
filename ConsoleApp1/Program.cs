@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 
-class Cliente
+struct Cliente
 {
     public int id;
     public string nombre;
@@ -14,7 +14,7 @@ class Cliente
     public string paisregion;
 }
 
-class Vuelo
+struct Vuelo
 {
     public int id;
     public string destino;
@@ -23,7 +23,7 @@ class Vuelo
     public int asientosDisponibles;
 }
 
-class usa
+struct usa
 {
     public int id;
     public string escalas;
@@ -34,7 +34,7 @@ class usa
     public int asientosDisponibles;
 }
 
-class mex
+struct mex
 {
     public int id;
     public string escalas;
@@ -45,7 +45,7 @@ class mex
     public int asientosDisponibles;
 }
 
-class esp
+struct esp
 {
     public int id;
     public string escalas;
@@ -56,7 +56,7 @@ class esp
     public int asientosDisponibles;
 }
 
-class col
+struct col
 {
     public int id;
     public string escalas;
@@ -67,7 +67,7 @@ class col
     public int asientosDisponibles;
 }
 
-class cost
+struct cost
 {
     public int id;
     public string escalas;
@@ -78,7 +78,7 @@ class cost
     public int asientosDisponibles;
 }
 
-class peru
+struct peru
 {
     public int id;
     public string escalas;
@@ -89,7 +89,7 @@ class peru
     public int asientosDisponibles;
 }
 
-class Paises
+struct Paises
 {
     public int id;
     public string destino;
@@ -98,7 +98,7 @@ class Paises
     public int asientosDisponibles;
 
 }
-class Destinosreserv
+struct Destinosreserv
 {
     public int id;
     public string destino2;
@@ -107,13 +107,13 @@ class Destinosreserv
     public int asientosDisponibles2;
 }
 
-class Reserva
+struct Reserva
 {
     public int idCliente;
     public int idVuelo;
 }
 
-class Program
+struct Program
 {
 
     static bool AutenticarEmpleado()
@@ -524,7 +524,7 @@ class Program
         string seleccionVuelo = Console.ReadLine();
         if (int.TryParse(seleccionVuelo, out int vueloIndex) && vueloIndex > 0 && vueloIndex <= horarios.Length)
         {
-            Console.WriteLine($"Ha seleccionado el vuelo {horarios[vueloIndex - 1]}");
+            Console.WriteLine($"Ha seleccionado el vuelo {horarios[vueloIndex - 1]} su vuelo ha sido registrado");
         }
         else
         {
