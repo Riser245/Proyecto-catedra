@@ -1,18 +1,21 @@
 ﻿namespace ejemplo
 {
+
+    using System;
+    using System.Diagnostics;
+    using System.IO;
     internal class Program
     {
         struct Cliente
         {
-            public int id;
-            public string nombre;
-            public string apellido;
-            public string pasaporte;
-            public string correo;
-            public string nacimiento;
-            public string telefono;
-            public string direccion;
-            public string paisregion;
+            public string Nombre;
+            public string Apellido;
+            public string Pasaporte;
+            public string Correo;
+            public string Nacimiento;
+            public string Telefono;
+            public string Direccion;
+            public string Paisregion;
         }
 
         struct Vuelo
@@ -125,52 +128,55 @@
                 return claveIngresada == claveCorrecta;
             }
 
-            static void RegistrarCliente(Cliente[] clientes, ref int totalClientes)
+            static Cliente[] clientes = new Cliente[100];
+            static int totalClientes = 0;
+
+            static void RegistrarCliente()
             {
-                if (totalClientes >= clientes.Length)
-                {
-                    Console.WriteLine("No se pueden registrar más clientes. Límite alcanzado.");
-                    return;
-                }
+                Cliente nuevoCliente = new Cliente();
 
-                Console.Write("Ingrese el ID del cliente: ");
-                if (!int.TryParse(Console.ReadLine(), out int id))
-                {
-                    Console.WriteLine("ID inválido.");
-                    return;
-                }
+                Console.Clear();
+                Console.WriteLine("===== REGISTRO DE CLIENTES =====");
+                Console.Write("Nombre: ");
+                nuevoCliente.Nombre = Console.ReadLine();
+                Console.Write("Apellido: ");
+                nuevoCliente.Apellido = Console.ReadLine();
+                Console.Write("Pasaporte: ");
+                nuevoCliente.Pasaporte = Console.ReadLine();
+                Console.Write("Correo: ");
+                nuevoCliente.Correo = Console.ReadLine();
+                Console.Write("Nacimiento: ");
+                nuevoCliente.Nacimiento = Console.ReadLine();
+                Console.Write("Telefono: ");
+                nuevoCliente.Telefono = Console.ReadLine();
+                Console.Write("Direccion: ");
+                nuevoCliente.Direccion = Console.ReadLine();
+                Console.Write("Pais o Región: ");
+                nuevoCliente.Paisregion = Console.ReadLine();
 
-                clientes[totalClientes] = new Cliente(); // Se inicializa la posición en el array
-                clientes[totalClientes].id = id;
-
-                Console.Write("Ingrese el nombre del cliente: ");
-                clientes[totalClientes].nombre = Console.ReadLine();
-
-                Console.Write("Ingrese el apellido del cliente: ");
-                clientes[totalClientes].apellido = Console.ReadLine();
-
-                Console.Write("Ingrese el número de pasaporte: ");
-                clientes[totalClientes].pasaporte = Console.ReadLine();
-
-                Console.Write("Ingrese el correo electronico del cliente: ");
-                clientes[totalClientes].correo = Console.ReadLine();
-
-                Console.Write("Ingrese la fecha de nacimiento del cliente: ");
-                clientes[totalClientes].nacimiento = Console.ReadLine();
-
-                Console.Write("Ingrese el número de telefono del cliente: ");
-                clientes[totalClientes].telefono = Console.ReadLine();
-
-                Console.Write("Ingrese la direccion del cliente: ");
-                clientes[totalClientes].direccion = Console.ReadLine();
-
-                Console.Write("Ingrese el pais o region de procedencia del cliente: ");
-                clientes[totalClientes].paisregion = Console.ReadLine();
-
-
-
+                // Guardar en array
+                clientes[totalClientes] = nuevoCliente;
                 totalClientes++;
-                Console.WriteLine("Cliente registrado con éxito!\n");
+
+                // Guardar en archivo de texto
+                using (StreamWriter escribir = new StreamWriter("Clientes.txt", true))
+                {
+                    escribir.WriteLine($"Cliente {totalClientes}:");
+                    escribir.WriteLine($"Nombre: {nuevoCliente.Nombre}");
+                    escribir.WriteLine($"Apellido: {nuevoCliente.Apellido}");
+                    escribir.WriteLine($"Pasaporte: {nuevoCliente.Pasaporte}");
+                    escribir.WriteLine($"Correo: {nuevoCliente.Correo}");
+                    escribir.WriteLine($"Nacimiento: {nuevoCliente.Nacimiento}");
+                    escribir.WriteLine($"Telefono: {nuevoCliente.Telefono}");
+                    escribir.WriteLine($"Direccion: {nuevoCliente.Direccion}");
+                    escribir.WriteLine($"Pais/Región: {nuevoCliente.Paisregion}");
+                    escribir.WriteLine("----------------------------------------");
+                    escribir.WriteLine();
+                }
+
+                Console.WriteLine("¡Cliente registrado y guardado en archivo exitosamente!");
+                Console.WriteLine("Presiona ENTER para continuar...");
+                Console.ReadLine();
             }
 
             static void RegistrarVuelo(Vuelo[] vuelos, ref int totalVuelos)
@@ -534,6 +540,27 @@
             }
 
 
+            static void MostrarClientesDesdeArchivo()
+            {
+                string archivo = "Clientes.txt";
+
+                if (!File.Exists(archivo))
+                {
+                    Console.WriteLine("El archivo aún no existe.");
+                    Console.WriteLine("Presione ENTER para continuar...");
+                    Console.ReadLine();
+                    return;
+                }
+
+                // Abre el archivo con el Bloc de notas
+                Process.Start(new ProcessStartInfo()
+                {
+                    FileName = archivo,
+                    UseShellExecute = true
+                });
+            }
+
+
 
             static void Menu()
             {
@@ -553,7 +580,8 @@
                     Console.WriteLine("1. Reservar vuelo");
                     Console.WriteLine("2. Cancelar reserva");
                     Console.WriteLine("3. Registrar cliente");
-                    Console.WriteLine("4. Registrar vuelo"); // Se agregó esta opción
+                    Console.WriteLine("4. Mostrar clientes");
+                    Console.WriteLine("5. Registrar vuelo"); // Se agregó esta opción
 
                     if (esEmpleado)
                     {
@@ -580,12 +608,15 @@
                             Console.WriteLine("Funcionalidad de cancelar reserva no implementada aún.");
                             break;
                         case 3:
-                            RegistrarCliente(clientes, ref totalClientes);
+                            RegistrarCliente();
                             break;
                         case 4:
-                            RegistrarVuelo(vuelos, ref totalVuelos);
+                            MostrarClientesDesdeArchivo();
                             break;
                         case 5:
+                            RegistrarVuelo(vuelos, ref totalVuelos);
+                            break;
+                        case 6:
                             if (esEmpleado)
                             {
                                 // Lógica para guardar datos
@@ -594,7 +625,7 @@
                             else
                                 Console.WriteLine("Acceso denegado.\n");
                             break;
-                        case 6:
+                        case 7:
                             if (esEmpleado)
                             {
                                 // Lógica para cargar datos
@@ -603,7 +634,7 @@
                             else
                                 Console.WriteLine("Acceso denegado.\n");
                             break;
-                        case 7:
+                        case 8:
                             Console.WriteLine("Saliendo...");
                             break;
                         default:
