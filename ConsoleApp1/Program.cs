@@ -154,6 +154,88 @@
                 Console.Write("Pais o Región: ");
                 nuevoCliente.Paisregion = Console.ReadLine();
 
+                static void RegistrarVuelo()
+                {
+                    Vuelo nuevoVuelo = new Vuelo();
+
+                    Console.Clear();
+                    Console.WriteLine("===== REGISTRO DE VUELOS =====");
+
+                    Console.Write("ID del vuelo: ");
+                    while (!int.TryParse(Console.ReadLine(), out nuevoVuelo.id))
+                    {
+                        Console.Write("❌ ID inválido. Ingrese un número: ");
+                    }
+
+                    Console.Write("Destino del vuelo: ");
+                    nuevoVuelo.destino = Console.ReadLine();
+
+                    Console.Write("Horario del vuelo: ");
+                    nuevoVuelo.horario = Console.ReadLine();
+
+                    Console.Write("Capacidad total de pasajeros: ");
+                    while (!int.TryParse(Console.ReadLine(), out nuevoVuelo.capacidad))
+                    {
+                        Console.Write("❌ Capacidad inválida. Ingrese un número: ");
+                    }
+
+                    nuevoVuelo.asientosDisponibles = nuevoVuelo.capacidad;
+
+
+                    // Guardar en archivo
+                    using (StreamWriter escribir = new StreamWriter("Vuelos.txt", true))
+                    {
+                        escribir.WriteLine($"Vuelo ID: {nuevoVuelo.id}");
+                        escribir.WriteLine($"Destino : {nuevoVuelo.destino}");
+                        escribir.WriteLine($"Horario : {nuevoVuelo.horario}");
+                        escribir.WriteLine($"Capacidad total      : {nuevoVuelo.capacidad}");
+                        escribir.WriteLine($"Asientos disponibles : {nuevoVuelo.asientosDisponibles}");
+                        escribir.WriteLine("------------------------------------------");
+                        escribir.WriteLine();
+                    }
+
+                    Console.WriteLine("¡Vuelo registrado y guardado exitosamente!");
+                    Console.WriteLine("Presione ENTER para continuar...");
+                    Console.ReadLine();
+                }
+
+                static void RegistrarDestino()
+                {
+                    Console.Clear();
+                    Console.WriteLine("===== REGISTRO DE DESTINOS =====");
+
+                    Console.Write("País del destino: ");
+                    string pais = Console.ReadLine();
+
+                    Console.Write("Ciudad del destino: ");
+                    string ciudad = Console.ReadLine();
+
+                    Console.Write("Horario (mañana/tarde/noche): ");
+                    string horario = Console.ReadLine();
+
+                    Console.Write("¿Tiene escalas? (Sí/No): ");
+                    string escala = Console.ReadLine();
+
+                    Console.Write("Precio del vuelo: ");
+                    string precio = Console.ReadLine();
+
+                    // Guardar en archivo de texto
+                    using (StreamWriter escribir = new StreamWriter("Destinos.txt", true))
+                    {
+                        escribir.WriteLine("===== NUEVO DESTINO REGISTRADO =====");
+                        escribir.WriteLine($"País    : {pais}");
+                        escribir.WriteLine($"Ciudad  : {ciudad}");
+                        escribir.WriteLine($"Horario : {horario}");
+                        escribir.WriteLine($"Escalas : {escala}");
+                        escribir.WriteLine($"Precio  : {precio}");
+                        escribir.WriteLine("-------------------------------------\n");
+                    }
+
+                    Console.WriteLine("¡Destino registrado y guardado en archivo exitosamente!");
+                    Console.WriteLine("Presiona ENTER para continuar...");
+                    Console.ReadLine();
+                }
+
                 // Guardar en array
                 clientes[totalClientes] = nuevoCliente;
                 totalClientes++;
@@ -179,6 +261,158 @@
                 Console.ReadLine();
             }
 
+
+            static void RegistrarDestino()
+            {
+                Console.Clear();
+                Console.WriteLine("===== REGISTRO DE DESTINOS =====");
+
+                Console.Write("País del destino: ");
+                string pais = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(pais))
+                {
+                    Console.Write(" País inválido. Intente de nuevo: ");
+                    pais = Console.ReadLine();
+                }
+
+                Console.Write("Ciudad del destino: ");
+                string ciudad = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(ciudad))
+                {
+                    Console.Write(" Ciudad inválida. Intente de nuevo: ");
+                    ciudad = Console.ReadLine();
+                }
+
+                Console.Write("Horario (mañana/tarde/noche): ");
+                string horario = Console.ReadLine().ToLower();
+                while (horario != "mañana" && horario != "tarde" && horario != "noche")
+                {
+                    Console.Write(" Horario inválido. Use 'mañana', 'tarde' o 'noche': ");
+                    horario = Console.ReadLine().ToLower();
+                }
+
+                Console.Write("¿Tiene escalas? (sí/no): ");
+                string escala = Console.ReadLine().ToLower();
+                while (escala != "sí" && escala != "no")
+                {
+                    Console.Write(" Respuesta inválida. Escriba 'sí' o 'no': ");
+                    escala = Console.ReadLine().ToLower();
+                }
+
+                Console.Write("Precio del vuelo (en USD): ");
+                string precio = Console.ReadLine();
+                while (!decimal.TryParse(precio, out _))
+                {
+                    Console.Write(" Precio inválido. Ingrese un número válido: ");
+                    precio = Console.ReadLine();
+                }
+
+                // Guardar en archivo de texto
+                using (StreamWriter escribir = new StreamWriter("Destinos.txt", true))
+                {
+                    escribir.WriteLine("===== NUEVO DESTINO REGISTRADO =====");
+                    escribir.WriteLine($"País    : {pais}");
+                    escribir.WriteLine($"Ciudad  : {ciudad}");
+                    escribir.WriteLine($"Horario : {horario}");
+                    escribir.WriteLine($"Escalas : {escala}");
+                    escribir.WriteLine($"Precio  : {precio}");
+                    escribir.WriteLine("-------------------------------------\n");
+                }
+
+                Console.WriteLine("¡Destino registrado y guardado en archivo exitosamente!");
+                Console.WriteLine("Presiona ENTER para continuar...");
+                Console.ReadLine();
+            }
+            static void MostrarVuelosDesdeArchivo()
+            {
+                string archivo = "Vuelos.txt";
+
+                if (!File.Exists(archivo))
+                {
+                    Console.WriteLine("No hay vuelos registrados aún.");
+                    return;
+                }
+
+                Console.Clear();
+                Console.WriteLine("=== VUELOS DISPONIBLES ===\n");
+
+                string[] lineas = File.ReadAllLines(archivo);
+                int contador = 1;
+
+                for (int i = 0; i < lineas.Length; i++)
+                {
+                    if (lineas[i].StartsWith("Vuelo"))
+                    {
+                        Console.WriteLine($"[{contador}]");
+                        contador++;
+                    }
+
+                    Console.WriteLine(lineas[i]);
+                }
+
+                Console.WriteLine("\nPresione ENTER para continuar...");
+                Console.ReadLine();
+            }
+
+
+            static void CancelarReserva()
+            {
+                string archivoReservas = "Reservas.txt";
+                if (!File.Exists(archivoReservas))
+                {
+                    Console.WriteLine("❌ No hay reservas registradas aún.");
+                    Console.WriteLine("Presione ENTER para continuar...");
+                    Console.ReadLine();
+                    return;
+                }
+
+                string[] reservas = File.ReadAllLines(archivoReservas);
+                List<int> indicesReservasActivas = new List<int>();
+
+                Console.Clear();
+                Console.WriteLine("=== CANCELAR RESERVA ===\n");
+
+                for (int i = 0; i < reservas.Length; i++)
+                {
+                    if (reservas[i].Contains("Estado: Activa"))
+                    {
+                        Console.WriteLine($"[{indicesReservasActivas.Count + 1}]");
+                        Console.WriteLine(reservas[i - 2]); // Destino
+                        Console.WriteLine(reservas[i - 1]); // Horario
+                        Console.WriteLine(reservas[i]);     // Estado
+                        Console.WriteLine(reservas[i + 1]); // Separador
+                        Console.WriteLine();
+                        indicesReservasActivas.Add(i);
+                    }
+                }
+
+                if (indicesReservasActivas.Count == 0)
+                {
+                    Console.WriteLine("No hay reservas activas para cancelar.");
+                    Console.WriteLine("Presione ENTER para continuar...");
+                    Console.ReadLine();
+                    return;
+                }
+
+                Console.Write("Seleccione el número de reserva a cancelar: ");
+                if (int.TryParse(Console.ReadLine(), out int seleccion) && seleccion >= 1 && seleccion <= indicesReservasActivas.Count)
+                {
+                    int lineaEstado = indicesReservasActivas[seleccion - 1];
+                    reservas[lineaEstado] = "Estado: Cancelada";
+
+                    File.WriteAllLines(archivoReservas, reservas);
+                    Console.WriteLine("\n✅ ¡Reserva cancelada exitosamente!");
+                }
+                else
+                {
+                    Console.WriteLine("❌ Selección no válida.");
+                }
+
+                Console.WriteLine("Presione ENTER para continuar...");
+                Console.ReadLine();
+            }
+
+
             static void RegistrarVuelo(Vuelo[] vuelos, ref int totalVuelos)
             {
                 if (totalVuelos >= vuelos.Length)
@@ -194,7 +428,7 @@
                     return;
                 }
 
-                vuelos[totalVuelos] = new Vuelo(); // Se inicializa la posición en el array
+                vuelos[totalVuelos] = new Vuelo(); // Inicializar
                 vuelos[totalVuelos].id = id;
 
                 Console.Write("Ingrese el destino: ");
@@ -202,8 +436,6 @@
 
                 Console.Write("Ingrese el horario: ");
                 vuelos[totalVuelos].horario = Console.ReadLine();
-
-                //aqui es de agregar la cantidad de asientos y alguna cosa que sea necesaria
 
                 Console.Write("Ingrese la capacidad del vuelo: ");
                 if (!int.TryParse(Console.ReadLine(), out int capacidad))
@@ -214,10 +446,22 @@
 
                 vuelos[totalVuelos].capacidad = capacidad;
                 vuelos[totalVuelos].asientosDisponibles = capacidad;
-                totalVuelos++;
-                Console.WriteLine("Vuelo registrado con éxito!\n");
-            }
 
+                // Guardar en archivo de texto
+                using (StreamWriter escribir = new StreamWriter("Vuelos.txt", true))
+                {
+                    escribir.WriteLine($"Vuelo {totalVuelos + 1}:");
+                    escribir.WriteLine($"ID: {vuelos[totalVuelos].id}");
+                    escribir.WriteLine($"Destino: {vuelos[totalVuelos].destino}");
+                    escribir.WriteLine($"Horario: {vuelos[totalVuelos].horario}");
+                    escribir.WriteLine($"Capacidad Total: {vuelos[totalVuelos].capacidad}");
+                    escribir.WriteLine($"Asientos Disponibles: {vuelos[totalVuelos].asientosDisponibles}");
+                    escribir.WriteLine("----------------------------------------\n");
+                }
+
+                totalVuelos++;
+                Console.WriteLine("✈ ¡Vuelo registrado y guardado exitosamente en Vuelos.txt!");
+            }
 
             //Reservas de  vuelo creo que va ser un monton de switches
             static void Reservavuelo(Destinosreserv[] Destino, ref int reservVuelo)
@@ -258,7 +502,7 @@
                         DestinatarioMex(MEX, ref reserPais);
 
                         break;
-                    case " 3":
+                    case "3":
                         DestinatarioCost(COST, ref reserPais);
 
                         break;
@@ -496,7 +740,7 @@
 
                 switch (destino)
                 {
-                    case "Madrid":
+                    case "1":
                         MostrarVuelos("Madrid", new string[] { "8:00 a.m. - 11:00 p.m.", "2:00 p.m. - 5:00 a.m.", "10:00 p.m. - 1:00 p.m." }, "$500", "$750", "$50", new string[] { "Miami", "Paris" });
                         break;
 
@@ -521,21 +765,53 @@
                 {
                     Console.WriteLine($" {i + 1}. {horarios[i]}");
                 }
+
                 Console.WriteLine($"Precios: Niños: {precioNino}, Adultos: {precioAdulto}, Equipaje adicional: {equipaje}");
                 Console.WriteLine(" Escalas:");
                 foreach (var escala in escalas)
                 {
                     Console.WriteLine($" - {escala}");
                 }
-                Console.Write("Seleccione el número de vuelo que desea: ");
+
+                Console.Write("\nSeleccione el número de vuelo que desea: ");
                 string seleccionVuelo = Console.ReadLine();
+
                 if (int.TryParse(seleccionVuelo, out int vueloIndex) && vueloIndex > 0 && vueloIndex <= horarios.Length)
                 {
-                    Console.WriteLine($"Ha seleccionado el vuelo {horarios[vueloIndex - 1]} su vuelo ha sido reservado");
+                    string horarioSeleccionado = horarios[vueloIndex - 1];
+                    Console.WriteLine($"\n✈ Ha reservado el vuelo a {destino} en el horario: {horarioSeleccionado}");
+
+                    // Guardar en archivo
+                    using (StreamWriter escribir = new StreamWriter("VuelosReservados.txt", true))
+                    {
+                        escribir.WriteLine($"Vuelo reservado a: {destino}");
+                        escribir.WriteLine($"Horario seleccionado: {horarioSeleccionado}");
+                        escribir.WriteLine($"Precio (Niño): {precioNino}");
+                        escribir.WriteLine($"Precio (Adulto): {precioAdulto}");
+                        escribir.WriteLine($"Equipaje adicional: {equipaje}");
+                        escribir.WriteLine("Escalas:");
+                        foreach (var escala in escalas)
+                        {
+                            escribir.WriteLine($" - {escala}");
+                        }
+                        escribir.WriteLine("--------------------------------------------------\n");
+                    }
+
+                    Console.WriteLine("\n ¡Reserva de vuelo guardada exitosamente!");
+                    // También guardamos en el archivo principal de reservas
+                    using (StreamWriter escribirReserva = new StreamWriter("Reservas.txt", true))
+                    {
+                        escribirReserva.WriteLine($"Destino: {destino}");
+                        escribirReserva.WriteLine($"Horario: {horarioSeleccionado}");
+                        escribirReserva.WriteLine("Estado: Activa");
+                        escribirReserva.WriteLine("--------------------------------------\n");
+                    }
+
                 }
+
                 else
                 {
-                    Console.WriteLine("Selección no válida.");
+                    Console.WriteLine("ERROR; Selección no válida.");
                 }
             }
 
@@ -582,14 +858,16 @@
                     Console.WriteLine("3. Registrar cliente");
                     Console.WriteLine("4. Mostrar clientes");
                     Console.WriteLine("5. Registrar vuelo"); // Se agregó esta opción
+                    Console.WriteLine("6. Registrar Destino");// Se agregó esta opción :D
+                    Console.WriteLine("7. Mostrar vuelos disponibles");// tambien se agrego esta :D
 
                     if (esEmpleado)
                     {
-                        Console.WriteLine("5. Guardar datos");
-                        Console.WriteLine("6. Cargar datos");
+                        Console.WriteLine("9. Guardar datos");
+                        Console.WriteLine("10. Cargar datos");
                     }
 
-                    Console.WriteLine("5. Salir");
+                    Console.WriteLine("8. Salir");
                     Console.Write("Seleccione una opción: ");
                     if (!int.TryParse(Console.ReadLine(), out opcion))
                     {
@@ -604,8 +882,7 @@
                             Reservavuelo(reservVuelo, ref rVuelo);
                             break;
                         case 2:
-                            // Lógica para cancelar reserva
-                            Console.WriteLine("Funcionalidad de cancelar reserva no implementada aún.");
+                            CancelarReserva();
                             break;
                         case 3:
                             RegistrarCliente();
@@ -617,6 +894,12 @@
                             RegistrarVuelo(vuelos, ref totalVuelos);
                             break;
                         case 6:
+                            RegistrarDestino();
+                            break;
+                        case 7:
+                            MostrarVuelosDesdeArchivo();
+                            break;
+                        case 9:
                             if (esEmpleado)
                             {
                                 // Lógica para guardar datos
@@ -625,7 +908,7 @@
                             else
                                 Console.WriteLine("Acceso denegado.\n");
                             break;
-                        case 7:
+                        case 10:
                             if (esEmpleado)
                             {
                                 // Lógica para cargar datos
@@ -641,7 +924,7 @@
                             Console.WriteLine("Opción inválida.\n");
                             break;
                     }
-                } while (opcion != 7);
+                } while (opcion != 8);
             }
 
             static void Main()
@@ -651,4 +934,3 @@
         }
     }
 }
-
